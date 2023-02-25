@@ -3,8 +3,7 @@ import requests
 import datetime
 from getWeatherImage import get_icons
 
-key = open("secret.txt").read()
-print(key)
+key = open("secret.txt").readline()
 response = requests.get(f"http://api.weatherapi.com/v1/forecast.json?key={key}&q=%C4%8Cesk%C3%A1%20L%C3%ADpa&days=8&aqi=no&alerts=no")
 response.raise_for_status()
 response = response.json()
@@ -286,7 +285,7 @@ def main(page: Page):
 
         bot_data = []
 
-        for i in range(1, 8):
+        for i in range(1, 3):
             day_name = days[day_index + another_day]
             another_day += 1
             desc = response["forecast"]["forecastday"][i]["day"]["condition"]["text"]
@@ -378,7 +377,7 @@ def main(page: Page):
         bot_column = Column(
             alignment="center",
             horizontal_alignment="center",
-            spacing=25,
+            spacing=80,
         )
 
         for data in bottom_data():
