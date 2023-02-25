@@ -3,8 +3,10 @@ import requests
 import datetime
 from getWeatherImage import get_icons
 
-key = open("secret.txt").readline()
-response = requests.get(f"http://api.weatherapi.com/v1/forecast.json?key={key}&q=%C4%8Cesk%C3%A1%20L%C3%ADpa&days=8&aqi=no&alerts=no")
+with open("secret.txt") as file:
+    api_key = file.readline()
+
+response = requests.get(f"http://api.weatherapi.com/v1/forecast.json?key={api_key}&q=%C4%8Cesk%C3%A1%20L%C3%ADpa&days=8&aqi=no&alerts=no")
 response.raise_for_status()
 response = response.json()
 
