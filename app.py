@@ -287,7 +287,7 @@ def main(page: Page):
 
         bot_data = []
 
-        for i in range(1, 3):
+        for i in range(1, 8):
             day_name = days[day_index + another_day]
             another_day += 1
             desc = response["forecast"]["forecastday"][i]["day"]["condition"]["text"]
@@ -379,7 +379,7 @@ def main(page: Page):
         bot_column = Column(
             alignment="center",
             horizontal_alignment="center",
-            spacing=80,
+            spacing=25,
         )
 
         for data in bottom_data():
